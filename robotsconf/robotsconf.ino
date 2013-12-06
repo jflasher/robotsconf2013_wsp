@@ -28,12 +28,6 @@ void setup() {
 
 // The program loop, will run over and over again, FOREVER!
 void loop() {
-  // If there is anything in the serial buffer, read it in and handle the action
-  if (Serial.available() > 0) {
-    String s = Serial.readString();
-    changeTiming(s);
-  }  
-  
   // Set pin state one way
   setPinState(HIGH);
   
@@ -45,6 +39,12 @@ void loop() {
   
   // And pause again
   delay(delayTime);
+  
+  // If there is anything in the serial buffer, read it in and handle the action
+  if (Serial.available() > 0) {
+    String s = Serial.readString();
+    changeTiming(s);
+  }  
 } 
 
 // Set the pin state
